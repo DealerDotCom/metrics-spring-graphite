@@ -1,0 +1,2 @@
+http\://www.yammer.com/schema/metrics/graphite=com.dealer.metrics.spring.graphite.config.MetricsGraphiteNamespaceHandler
+http\://www.dealer.com/schema/metrics/graphite=com.dealer.metrics.spring.graphite.config.MetricsGraphiteNamespaceHandler

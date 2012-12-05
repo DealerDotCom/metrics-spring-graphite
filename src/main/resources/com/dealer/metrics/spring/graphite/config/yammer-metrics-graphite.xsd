@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.yammer.com/schema/metrics/graphite"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns:beans="http://www.springframework.org/schema/beans"
+			targetNamespace="http://www.yammer.com/schema/metrics/graphite"
+			elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:import namespace="http://www.springframework.org/schema/beans"/>
+
+	<xsd:element name="graphite-reporter">
+		<xsd:complexType>
+			<xsd:attribute name="id" type="xsd:string" use="optional"/>
+			<xsd:attribute name="metrics-registry" type="xsd:string" use="optional"/>
+			<xsd:attribute name="prefix" type="xsd:string" use="optional" default=""/>
+			<xsd:attribute name="host" type="xsd:string" use="required" />
+			<xsd:attribute name="port" type="xsd:int" use="optional" default="2003" />
+			<xsd:attribute name="clock" type="clock" use="optional" default="DEFAULT" />
+			<xsd:attribute name="period" type="xsd:long" use="optional" default="1" />
+			<xsd:attribute name="time-unit" type="time-unit" use="optional" default="MINUTES" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- Maps to the available sub-classes of com.yammer.metrics.core.Clock  -->
+	<xsd:simpleType name="clock">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CPU"></xsd:enumeration>
+			<xsd:enumeration value="DEFAULT"></xsd:enumeration>
+			<xsd:enumeration value="USER"></xsd:enumeration>
+		</xsd:restriction>		
+	</xsd:simpleType>
+	
+	<!-- Maps to the available enumerated values of java.util.concurrent.TimeUnit -->
+	<xsd:simpleType name="time-unit">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="NANOSECONDS"></xsd:enumeration>
+			<xsd:enumeration value="MICROSECONDS"></xsd:enumeration>
+			<xsd:enumeration value="MILLISECONDS"></xsd:enumeration>
+			<xsd:enumeration value="SECONDS"></xsd:enumeration>
+			<xsd:enumeration value="MINUTES"></xsd:enumeration>
+			<xsd:enumeration value="HOURS"></xsd:enumeration>
+			<xsd:enumeration value="DAYS"></xsd:enumeration>
+		</xsd:restriction>		
+	</xsd:simpleType>
+
+</xsd:schema>

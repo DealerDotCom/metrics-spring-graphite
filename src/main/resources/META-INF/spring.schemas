@@ -1,0 +1,2 @@
+http\://www.yammer.com/schema/metrics/graphite/metrics-graphite.xsd=com/dealer/metrics/spring/graphite/config/yammer-metrics-graphite.xsd
+http\://www.dealer.com/schema/metrics/graphite/metrics-graphite-2.1.xsd=com/dealear/metrics/spring/graphite/config/metrics-graphite-2.1.xsd
